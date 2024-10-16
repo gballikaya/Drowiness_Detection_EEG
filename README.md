@@ -17,12 +17,19 @@ Kayıt süresi: 23.6 sn
 Her zaman serisi 4097 örnek içermektedir.
 
 klasör yapısı
+
 bonn_classification  (C:\Users\bgamz\Desktop\bonn_classification)
+
   boon_cls.m
+  
   F.zip
+  
   S.zip
+  
   O.zip
+  
   N.zip
+  
   Z.zip
 
 MATLAB:
