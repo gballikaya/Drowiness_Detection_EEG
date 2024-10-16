@@ -94,4 +94,77 @@ testLabelsSPN = labels3Class(idxSPN{2});
 validationDataSPN = eegData(idxSPN{3});
 validationLabelsSPN = labels3Class(idxSPN{3});
 ```
+Bu aşamadan sonra eğitime geçiliyor.
+
+Öncelikle elimizdeki verileri bu formata uygun hale getirelim
+
+[mit-bih-polysomnographic-database kullanılacaktır.] (https://physionet.org/content/slpdb/1.0.0/)
+
+Veritabanı, EKG sinyallerini ve EEG ile solunum sinyallerinin uyku evreleri ve apne açısından açıklandığı 80 saatten fazla dört, altı ve yedi kanallı polisomnografik kayıt içerir. 
+
+Veritabanı, her biri 4 dosya içeren 18 kayıttan oluşmaktadır: slp01a, slp01b, slp02a, slp02b, slp03, slp04, slp14, slp16, slp32,slp37, slp41, slp45, slp48, slp59, slp60, slp61, slp66, slp67. dosya türleri: .hea, .ecg, .dat, .st, .xws
+
+Uyku/apne açıklamaları: .st dosyaları
+Beat açıklamaları: .ecg dosyaları
+Sinyaller: .dat dosyaları
+Başlık: .hea dosyaları
+
+Her kayıt , sinyal tipleri, kalibrasyon sabitleri, kayıt uzunluğu ve (dosyanın son satırında) deneklerin yaşı, cinsiyeti ve kilosu (kg cinsinden) hakkında bilgi içeren kısa bir metin dosyası olan bir başlık (.hea) dosyası içerir. Bu veritabanında, 16 denek de erkekti, yaşları 32 ila 56 arasındaydı (ortalama yaş 43) ve kiloları 89 ila 152 kg arasında değişiyordu (ortalama kilo 119 kg). Slp01a ve slp01b kayıtları , yaklaşık bir saatlik bir boşlukla ayrılmış bir deneğin polisomnogramının bölümleridir; slp02a ve slp02b kayıtları , on dakikalık bir boşlukla ayrılmış başka bir deneğin polisomnogramının bölümleridir. Kalan 14 kayıt da farklı deneklere aittir.
+
+Tüm kayıtlar bir EKG sinyali, invaziv kan basıncı sinyali, bir EEG sinyali ve bir solunum sinyali içerir. Altı ve yedi kanallı kayıtlar ayrıca indüktans pletismografisi ile türetilen bir solunum çabası sinyali içerir; bazıları bir EOG sinyali ve bir EMG sinyali içerir ve geri kalanlar bir kardiyak atım hacmi sinyali ve bir kulak memesi oksimetre sinyali içerir. 
+
+18 kaydın tamamı EEG verisi içeriyor.
+```
+aux	meaning
+W	subject is awake
+1	sleep stage 1
+2	sleep stage 2
+3	sleep stage 3
+4	sleep stage 4
+R	REM sleep
+H	Hypopnea
+HA	Hypopnea with arousal
+OA	Obstructive apnea
+X	Obstructive apnea with arousal
+CA	Central apnea
+CAA	Central apnea with arousal
+L	Leg movements
+LA	Leg movements with arousal
+A	Unspecified arousal
+MT	Movement time
+```
+
+veriyi incelemek için [ilgili linkteki](https://physionet.org/content/wfdb-matlab/0.10.0/) adımları takip ederek MATLAB WFDB (Waveform Database) paketini kuralım.
+
+WFDB paketinin [kaynak kodu] (https://github.com/ikarosilva/wfdb-app-toolbox) GİTHUB'da açık erişimlidir. Detaylara ulaşılabilir.
+
+örneğin slp66 kaydı 3:40 (3 saat 40dk) ve veri boyutu 3300000*7 ve 439 anotasyon : bunu doğrulayalım :
+
+
+sinyalden saniyede 250 örnek alınıyor
+
+30 saniyelik epochlar ile analiz ediliyor
+
+her 30 sn'de bir etiket atanıyor
+
+30 saniyede alınan örnek sayısı: 30*250=7500
+
+7500*439=3300000
+
+3 saat 40 dk=220 dakika=13200 saniye
+
+13200*250=3300000 örnek
+
+bir başka örnek slp48 kaydı 6:20 ve veri boyutu 5700000*7 ve 760 anotasyona sahip: bunu doğrulayalım:
+
+6 saat 20 dakika=22800 saniye
+
+22800*250=5700000 örnek 
+
+760*7500=5700000 örnek
+
+
+
+
+
 
