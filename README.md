@@ -11,7 +11,9 @@ S.zip (E), Epilepsili hastalardan nöbet aktivitesi gösteren kayıtlar.
 isimli 5 adet zip dosyası
 
 Örnekleme frekansı: 173.61 Hz
+
 Kayıt süresi: 23.6 sn
+
 Her zaman serisi 4097 örnek içermektedir.
 
 klasör yapısı
