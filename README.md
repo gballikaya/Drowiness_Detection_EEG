@@ -1,29 +1,11 @@
 # Drowiness_Detection_EEG
-### step 1 . Download dataset:
 
-This study uses the [Sleep-EDF Database Expanded](https://physionet.org/content/sleep-edfx/1.0.0/) dataset.
+Kaynak : https://www.mathworks.com/help/wavelet/ug/time-frequency-convolutional-network-for-eeg-data-classification.html
 
-for Windows use wget : 
-
-wget -r -N -c -np https://physionet.org/files/sleep-edfx/1.0.0/ 
-
-(wget can use gitbash or [cygwin](https://www.cygwin.com/))
-
-
-
-#### When using this resource, please cite the original publication:
-B Kemp, AH Zwinderman, B Tuk, HAC Kamphuisen, JJL Oberyé. Analysis of a sleep-dependent neuronal feedback loop: the slow-wave microcontinuity of the EEG. IEEE-BME 47(9):1185-1194 (2000).
-
-#### Please include the standard citation for PhysioNet: 
-Goldberger, A., Amaral, L., Glass, L., Hausdorff, J., Ivanov, P. C., Mark, R., ... & Stanley, H. E. (2000). PhysioBank, PhysioToolkit, and PhysioNet: Components of a new research resource for complex physiologic signals. Circulation [Online]. 101 (23), pp. e215–e220.
-
-
-### step 2. Clone the repository using the following link (Make sure GİT is installed):
-
-https://github.com/anasimtiaz/sleep-edfx-toolbox/tree/master
-
-### step 3. Download the BioSig Toolbox for EDF-MATLAB conversion(Be careful about the MATLAB file path):
-
-[BioSig Toolbox](https://biosig.sourceforge.net/download.html)
-
-### step 4. 
+### step 1 . [Download dataset:](https://www.upf.edu/web/ntsa/downloads/-/asset_publisher/xvT6E4pczrBw/content/2001-indications-of-nonlinear-deterministic-and-finite-dimensional-structures-in-time-series-of-brain-electrical-activity-dependence-on-recording-regi?inheritRedirect=false&redirect=https://www.upf.edu/web/ntsa/downloads?p_p_id%3D101_INSTANCE_xvT6E4pczrBw%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dcolumn-1%26p_p_col_count%3D1#.X5Ep-S337UI)
+Z.zip (A), Gözleri açık normal denekler
+O.zip (B), Gözleri kapalı normal denekler
+N.zip (C), Epilepsili hastalardan nöbetsiz kayıtlar. Epileptojenik bölgenin karşısındaki yarım küredeki hipokampüsten elde edilen kayıtlar
+F.zip (D), Epilepsili hastalardan nöbetsiz kayıtlar. Epileptojenik bölgeden elde edilen kayıtlar.  
+S.zip (E), Epilepsili hastalardan nöbet aktivitesi gösteren kayıtlar.
+isimli 5 adet zip dosyası
