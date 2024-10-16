@@ -81,9 +81,9 @@ veri dağılımı
 
 Bu aşamada verilerin son haline bakalım
 
-etiketler labels3Class değişkeninde 500*1 categorical string verilerle kaydedilmiş
+etiketler labels3Class değişkeninde 500x1 categorical string verilerle kaydedilmiş
 
-eeg verileri ise eegData içerisinde 500*1 cell ve her bir hücrede 1*4097 double veriler var 
+eeg verileri ise eegData içerisinde 500x1 cell ve her bir hücrede 1x4097 double veriler var 
 
 ```
 idxSPN = splitlabels(labels3Class,[0.7 0.2 0.1]);
