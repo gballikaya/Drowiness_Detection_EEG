@@ -37,16 +37,16 @@ unzip("s.zip",dataDir)
 ```
 dataDir altında bulunan tüm .txt dosyalarını içeren bir tabular text datastore oluşturur. Ardından, __MACOSX ifadesini içeren dosyaları filtreleyerek bu dosyaları datastore'dan çıkarır. 
 
-''' 
+```
 tds = tabularTextDatastore(dataDir, "IncludeSubfolders", true, "FileExtensions", ".txt"); (1*1 TabularTextDatastore)
 extraTXT = contains(tds.Files, "__MACOSX"); (500*1 logical) 
 tds.Files(extraTXT) = [];
 labels = filenames2labels(tds.Files,"ExtractBetween",[1 1]);  (500*1 categorical)
-'''
+```
 tabularTextDatastore içindeki tüm verileri okur ve her bir EEG zaman serisini bir hücre dizisine (eegData) kaydeder. Ayrıca, her okunan veriden sonra bir sayaç artırılır. En son olarak, datastore'un konumu sıfırlanır, böylece veriler tekrar okunabilir. 
 
 eeg verileri : satır vektörlerinin bir hücre dizisi haline getirilmiş
-'''
+```
 ii = 1;
 eegData = cell(numel(labels),1); (500*1 cell)
 while hasdata(tds)
@@ -55,5 +55,5 @@ while hasdata(tds)
     eegData{ii} = reshape(ts,1,[]);  
     ii = ii+1;
 end
-'''
+```S
 
