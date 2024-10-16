@@ -22,23 +22,9 @@ Kayıt süresi: 23.6 sn
 
 Her zaman serisi 4097 örnek içermektedir.
 
-klasör yapısı
-
-bonn_classification  (C:\Users\bgamz\Desktop\bonn_classification)
-
-  boon_cls.m
-  
-  F.zip
-  
-  S.zip
-  
-  O.zip
-  
-  N.zip
-  
-  Z.zip
-
 MATLAB:
+zip dosyaları içerisindeki txt dosyaları çıkartılıyor. toplam 500 adet txt dosyası. her bir txt dosyası içerisinde 4097 sayısal değer var
+'''Her TXT dosyası, ASCII kodunda bir EEG zaman serisinin 4096 örneğinden oluşur.'''
 ```
 parentDir = 'C:\Users\bgamz\Desktop\bonn_classification';
 cd(parentDir)
@@ -48,7 +34,26 @@ unzip("o.zip",dataDir)
 unzip("n.zip",dataDir)
 unzip("f.zip",dataDir)
 unzip("s.zip",dataDir)
-
 ```
+dataDir altında bulunan tüm .txt dosyalarını içeren bir tabular text datastore oluşturur. Ardından, __MACOSX ifadesini içeren dosyaları filtreleyerek bu dosyaları datastore'dan çıkarır. 
 
+''' 
+tds = tabularTextDatastore(dataDir, "IncludeSubfolders", true, "FileExtensions", ".txt"); (1*1 TabularTextDatastore)
+extraTXT = contains(tds.Files, "__MACOSX"); (500*1 logical) 
+tds.Files(extraTXT) = [];
+labels = filenames2labels(tds.Files,"ExtractBetween",[1 1]);  (500*1 categorical)
+'''
+tabularTextDatastore içindeki tüm verileri okur ve her bir EEG zaman serisini bir hücre dizisine (eegData) kaydeder. Ayrıca, her okunan veriden sonra bir sayaç artırılır. En son olarak, datastore'un konumu sıfırlanır, böylece veriler tekrar okunabilir. 
+
+eeg verileri : satır vektörlerinin bir hücre dizisi haline getirilmiş
+'''
+ii = 1;
+eegData = cell(numel(labels),1); (500*1 cell)
+while hasdata(tds)
+    tsTable = read(tds); (4097*1 table)
+    ts = tsTable.Var1; (4097*1 double)
+    eegData{ii} = reshape(ts,1,[]);  
+    ii = ii+1;
+end
+'''
 
