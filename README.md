@@ -136,10 +136,9 @@ MT	Movement time
 
 veriyi incelemek için [ilgili linkteki](https://physionet.org/content/wfdb-matlab/0.10.0/) adımları takip ederek MATLAB WFDB (Waveform Database) paketini kuralım.
 
-WFDB paketinin [kaynak kodu] (https://github.com/ikarosilva/wfdb-app-toolbox) GİTHUB'da açık erişimlidir. Detaylara ulaşılabilir.
-
+WFDB paketinin [kaynak kodu](https://github.com/ikarosilva/wfdb-app-toolbox) GİTHUB'da açık erişimlidir. Detaylara ulaşılabilir.
+```
 örneğin slp66 kaydı 3:40 (3 saat 40dk) ve veri boyutu 3300000*7 ve 439 anotasyon : bunu doğrulayalım :
-
 
 sinyalden saniyede 250 örnek alınıyor
 
@@ -154,15 +153,24 @@ her 30 sn'de bir etiket atanıyor
 3 saat 40 dk=220 dakika=13200 saniye
 
 13200*250=3300000 örnek
-
+```
+```
 bir başka örnek slp48 kaydı 6:20 ve veri boyutu 5700000*7 ve 760 anotasyona sahip: bunu doğrulayalım:
+
+sinyalden saniyede 250 örnek alınıyor
+
+30 saniyelik epochlar ile analiz ediliyor
+
+her 30 sn'de bir etiket atanıyor
+
+30 saniyede alınan örnek sayısı: 30*250=7500
 
 6 saat 20 dakika=22800 saniye
 
 22800*250=5700000 örnek 
 
 760*7500=5700000 örnek
-
+```
 
 
 
