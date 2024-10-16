@@ -114,6 +114,8 @@ Her kayıt , sinyal tipleri, kalibrasyon sabitleri, kayıt uzunluğu ve (dosyan�
 Tüm kayıtlar bir EKG sinyali, invaziv kan basıncı sinyali, bir EEG sinyali ve bir solunum sinyali içerir. Altı ve yedi kanallı kayıtlar ayrıca indüktans pletismografisi ile türetilen bir solunum çabası sinyali içerir; bazıları bir EOG sinyali ve bir EMG sinyali içerir ve geri kalanlar bir kardiyak atım hacmi sinyali ve bir kulak memesi oksimetre sinyali içerir. 
 
 18 kaydın tamamı EEG verisi içeriyor.
+
+Etiketler
 ```
 aux	meaning
 W	subject is awake
@@ -137,6 +139,8 @@ MT	Movement time
 veriyi incelemek için [ilgili linkteki](https://physionet.org/content/wfdb-matlab/0.10.0/) adımları takip ederek MATLAB WFDB (Waveform Database) paketini kuralım.
 
 WFDB paketinin [kaynak kodu](https://github.com/ikarosilva/wfdb-app-toolbox) GİTHUB'da açık erişimlidir. Detaylara ulaşılabilir.
+
+Verileri boyutlarını inceleyelim
 ```
 örneğin slp66 kaydı 3:40 (3 saat 40dk) ve veri boyutu 3300000*7 ve 439 anotasyon : bunu doğrulayalım :
 
