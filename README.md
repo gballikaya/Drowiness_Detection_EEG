@@ -55,5 +55,28 @@ while hasdata(tds)
     eegData{ii} = reshape(ts,1,[]);  
     ii = ii+1;
 end
-```S
+```
+Z ve O etiketlerini (gözleri açık ve kapalı epilepsi olmayan kişiler) "Normal" olarak gruplandırmaktır. 
+
+F ve N "Nöbet Öncesi" olarak gruplandırılabilir. 
+
+S (nöbet aktivitesi olan epilepsili kişilerde elde edilen kayıtlar) "Nöbet" olarak adlandırılıyor.
+
+```
+labels3Class = labels;   (labels de olduğu gibi 500*1 categorical)
+labels3Class = removecats(labels3Class,["F","N","O","S","Z"]);
+labels3Class(labels == categorical("Z") | labels == categorical("O")) = ...
+    categorical("Normal");
+labels3Class(labels == categorical("F") | labels == categorical("N")) = ...
+    categorical("Pre-seizure");
+labels3Class(labels == categorical("S")) = categorical("Seizure");
+```
+veri dağılımı
+```
+     Normal           200 
+     Pre-seizure      200 
+     Seizure          100
+```
+
+
 
