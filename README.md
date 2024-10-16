@@ -58,9 +58,9 @@ end
 ```
 Z ve O etiketlerini (gözleri açık ve kapalı epilepsi olmayan kişiler) "Normal" olarak gruplandırmaktır. 
 
-F ve N "Nöbet Öncesi" olarak gruplandırılabilir. 
+F ve N "Nöbet Öncesi" olarak gruplandırmaktır. 
 
-S (nöbet aktivitesi olan epilepsili kişilerde elde edilen kayıtlar) "Nöbet" olarak adlandırılıyor.
+S (nöbet aktivitesi olan epilepsili kişilerde elde edilen kayıtlar) "Nöbet" olarak adlandırılmaktadır.
 
 ```
 labels3Class = labels;   (labels de olduğu gibi 500*1 categorical)
@@ -77,6 +77,17 @@ veri dağılımı
      Pre-seizure      200 
      Seizure          100
 ```
-
-
+%70 eğitim, %20 test ve %10 olarak bölündü
+Bu aşamada verilerin son haline bakalım
+etiketler labels3Class değişkeninde 500*1 categorical string verilerle kaydedilmiş
+eeg verileri ise eegData içerisinde 500*1 cell ve her bir hücrede 1*4097 double veriler var 
+```
+idxSPN = splitlabels(labels3Class,[0.7 0.2 0.1]);
+trainDataSPN = eegData(idxSPN{1});
+trainLabelsSPN = labels3Class(idxSPN{1});
+testDataSPN = eegData(idxSPN{2});
+testLabelsSPN = labels3Class(idxSPN{2});
+validationDataSPN = eegData(idxSPN{3});
+validationLabelsSPN = labels3Class(idxSPN{3});
+```
 
