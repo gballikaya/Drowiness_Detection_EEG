@@ -148,7 +148,7 @@ her 30 sn'de bir etiket atanıyor
 
 30 saniyede alınan örnek sayısı: 30*250=7500
 
-7500*439=3300000
+7500*439=3300000 örnek
 
 3 saat 40 dk=220 dakika=13200 saniye
 
@@ -165,11 +165,12 @@ her 30 sn'de bir etiket atanıyor
 
 30 saniyede alınan örnek sayısı: 30*250=7500
 
+760*7500=5700000 örnek
+
 6 saat 20 dakika=22800 saniye
 
 22800*250=5700000 örnek 
 
-760*7500=5700000 örnek
 ```
 
 
